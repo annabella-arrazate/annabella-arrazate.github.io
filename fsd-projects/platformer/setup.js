@@ -93,9 +93,11 @@ let animationDetails = {};
 
 var collectableList = {
   database: { image: "images/collectables/database.png" },
-  diamond: { image: "images/collectables/diamond-head.png" },
-  grace: { image: "images/collectables/grace-head.png" },
-  kennedi: { image: "images/collectables/kennedi-head.png" },
-  max: { image: "images/collectables/max-head.png" },
-  steve: { image: "images/collectables/steve-head.png" },
+  mudkip: { image: "images/collectables/mudkip.png" },
+  slaking: { image: "images/collectables/slaking.png"},
+  altaria: { image: "images/collectables/altaria.png"},
+  gardevoir: { image: "images/collectables/gardevoir.png"},
+  breloom: { image: "images/collectables/breloom.png"},
+  spinda: {image: "images/collectables/spinda.png"},
+  stevenstone: { image: "images/collectables/stevenstone.png"},
 };

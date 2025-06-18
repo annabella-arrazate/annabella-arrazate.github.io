@@ -29,7 +29,7 @@ var background = function (window) {
         // ANIMATION VARIABLES HERE //////////////////////////////////////
         //////////////////////////////////////////////////////////////////
         // TODO (several):
-        var tree;
+        var papy;
         var buildings = [];
 
 
@@ -66,19 +66,20 @@ var background = function (window) {
             
             // TODO 4: Part 1 - Add buildings!     Q: This is before TODO 4 for a reason! Why?
             for (var i = 0; i < 10; ++i) {
-            var buildingHeight = 300;
-            var building = draw.rect(75, buildingHeight, "LightGray", "Black", 1);
-            building.x = 200 * i;
+            var buildingHeight = groundY * Math.random();
+            var buildingColor = ["blue", "gray", "red", "maroon", "blue", "purple", "blue", "maroon", "red", "gray"];
+            var building = draw.rect(75, buildingHeight, buildingColor[i], "Black", 1);
+            building.x = 225 * i;
             building.y = groundY - buildingHeight;
             background.addChild(building);
             buildings.push(building);
             }
             
-            // TODO 3: Part 1 - Add a tree
-            tree = draw.bitmap("img/tree.png");
-            tree.x = 750;
-            tree.y = groundY - 222;
-            background.addChild(tree);
+            // TODO 3: Part 1 - Add a papy
+            papy = draw.bitmap("img/papy.png");
+            papy.x = 750;
+            papy.y = groundY - 150;
+            background.addChild(papy);
             }
                         
          // end of render function - DO NOT DELETE
@@ -92,16 +93,24 @@ var background = function (window) {
             var canvasHeight = app.canvas.height;
             var groundY = ground.y;
             
-            // TODO 3: Part 2 - Move the tree!
-            tree.x = tree.x - 1;
+            // TODO 3: Part 2 - Move the papy!
+            papy.x = papy.x - 1;
 
-            if (tree.x < -200) {
-            tree.x = canvasWidth;
+            if (papy.x < -200) {
+            papy.x = canvasWidth;
             }
             
             
             // TODO 4: Part 2 - Parallax
             
+            for (var i = 0; i < buildings.length; i++) {
+             var building = buildings[i];
+            building.x -= 2;
+            if (building.x < -100){
+                building.x = canvasWidth + 100
+            }
+            
+            }
 
         } // end of update function - DO NOT DELETE
         

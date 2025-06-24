@@ -6,10 +6,18 @@
 	<title>Bouncing Box</title>
 	<script src="jquery.min.js"></script>
 	<style>
+		body {
+			background-image: url("img/background_bb.jpg");
+			background-color: #cccccc;
+			 -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+		}
 		.box {
-			width: 70px;
-			height: 70px;
-			background-color: teal;
+			width: 111px;
+			height: 125px;
+			background-image: url("img/doomguy.png");
 			font-size: 300%;
 			text-align: center;
 			user-select: none;
@@ -55,7 +63,7 @@
 			// moves the Box to a new position on the screen along the X-Axis
 			function moveBoxTo(newPositionX, newPositionY) {
 				box.css("left", newPositionX);
-				box.css("right", newPositionY);
+				box.css("top", newPositionY);
 			}
 
 			// changes the text displayed on the Box
@@ -71,7 +79,7 @@
 			var positionX = 0;
 			var positionY = 0;
 			var points = 0;
-			var speedX = 5 * points + 10;
+			var speedX = 10;
 			var speedY = 10;
 
 
@@ -92,6 +100,11 @@
 				} else if (positionX < 0) {
 					speedX *= -1
 				}
+				if (positionY > boardHeight){
+					speedY *= -1
+				} else if (positionY < 0) {
+					speedY *= -1
+				}
 
 
 			};
@@ -104,15 +117,15 @@
 			function handleBoxClick() {
 				//resets box to starting position 
 				positionX = 0;
+				positionY = 0;
 
 				//score increases
 				points ++;
 				changeBoxText(points);
 
 				//increases speed
-				speedX += 5
-				positionX = positionX + speedX;
-
+				speedX = 5 * points + 10
+				speedY = 5 * points + 10
 			};
 
 
